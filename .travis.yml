@@ -8,4 +8,4 @@ matrix:
 
 script: 
 
-  - python hello.py
+  - python foo.py
