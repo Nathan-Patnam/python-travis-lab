@@ -6,6 +6,12 @@ matrix:
       dist: xenial
       sudo: true
 
+install:
+  - pip install coverage
+  - pip install -U pytest
+
 script: 
 
-  - python foo.py
+  - cd tests/
+  - python unit-test.py
+  - python acceptance-test.py
