@@ -9,9 +9,10 @@ matrix:
 install:
   - pip install coverage
   - pip install -U pytest
+  - pip install robotframework
 
 script: 
 
   - cd tests/
-  - pytest unit-test.py
-  - python acceptance-test.py
+  - cd test_files
+  - pytest ./
