@@ -10,9 +10,15 @@ install:
   - pip install coverage
   - pip install -U pytest
   - pip install robotframework
+  - pip install coveralls
 
 script: 
 
   - cd tests/
   - cd test_files
-  - pytest ./
+  - python -m pytest dfa_test.py
+  - coverage run -m pytest dfa_test.py
+  - coverage report -m
+  - coverage html
+
+
