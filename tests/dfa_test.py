@@ -5,7 +5,7 @@ from dfa import *
 class TestDFA(object):
         @pytest.fixture(scope="function")
         def create_dfa(self,):
-                test_dfa = build_dfa("../dfa_inputs/mock_dfa.txt")
+                test_dfa = build_dfa("./mocks/dfa/mock_dfa.txt")
                 return test_dfa
 
         def test_states(self, create_dfa):
