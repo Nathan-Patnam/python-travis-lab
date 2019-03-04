@@ -5,7 +5,7 @@ from dfa import *
 class TestDFA(object):
         @pytest.fixture(scope="function")
         def create_dfa(self,):
-                test_dfa = build_dfa("./mocks/dfa/mock_dfa.txt")
+                test_dfa = build_dfa("./mocks/dfa_1.txt")
                 return test_dfa
 
         def test_states(self, create_dfa):
@@ -34,30 +34,3 @@ class TestDFA(object):
                 test_dfa_transitions = create_dfa.transitions
                 assert transitions == test_dfa_transitions
 
-
-"""
-
-def sum(num1, num2):
-It returns sum of two numbers
-    return num1 + num2
-
-paramaterize tests -> test multiple sets of inputs at once
-def get_sum_test_data():
-        return [(3,5,8), (-2,-2,-4), (-1,5,4), (3,-5,-2), (0,5,5)]
-
-@pytest.mark.parametrize('num1, num2, expected',get_sum_test_data())
-def test_sum(num1, num2, expected):
-        assert sum(num1, num2) == expected
-
-@pytest.fixture
-def get_sum_test_data():
-        return [(3,5,8), (-2,-2,-4), (-1,5,4), (3,-5,-2), (0,5,5)]
-        
-def test_sum(get_sum_test_data):
-        for data in get_sum_test_data:
-                num1 = data[0]
-                num2 = data[1]
-                expected = data[2]
-                assert sum(num1, num2) == expected
-
-"""

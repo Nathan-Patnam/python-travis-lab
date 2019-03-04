@@ -14,8 +14,6 @@ install:
 
 script: 
 
-  - cd tests/
-  - cd test_files
   - coverage run -m pytest ./ -v
   - coverage report -m
   - coverage html

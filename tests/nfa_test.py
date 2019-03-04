@@ -5,7 +5,7 @@ from nfa import build_nfa
 class TestNFA(object):
     @pytest.fixture(scope="function")
     def create_nfa(self):
-        test_nfa = build_nfa("mocks/nfa/mock_nfa.txt")
+        test_nfa = build_nfa("mocks/nfa_1.txt")
         return test_nfa
 
     def test_get_states(self, create_nfa):
