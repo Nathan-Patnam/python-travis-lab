@@ -16,11 +16,9 @@ install:
 script: 
 
   - coverage run -m pytest ./ -v
-  - coverage report -m
-  - coverage html
 
 
 after_success:
-  - coveralls --data_file ./tests/*.py
+  - coveralls 
 
 
