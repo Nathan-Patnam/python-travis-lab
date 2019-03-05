@@ -15,7 +15,8 @@ install:
 
 script: 
 
-  - coverage run -m pytest ./ -v
+  - coverage run --source=tests/
+  - pytest ./ -v
 
 
 after_success:
