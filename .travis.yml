@@ -14,7 +14,7 @@ install:
 
 script: 
 
-  - pytest tests/dfa_test.py tests/nfa_test.py --cov=.
+  - pytest /tests/dfa_test.py /tests/nfa_test.py --cov=.
   - coverage report -m
 
 
