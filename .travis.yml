@@ -7,16 +7,14 @@ matrix:
       sudo: true
 
 install:
-  - pip install coverage
-  - pip install pyyaml
   - pip install -U pytest
-  - pip install robotframework
+  - pip install pytest-cov 
+  - pip install pyyaml
   - pip install python-coveralls
 
 script: 
 
-  - coverage run --source=/tests/nfa_test.py,/tests/dfa_test.py
-  - pytest ./ -v
+  - pytest --cov=./tests/
 
 
 after_success:
