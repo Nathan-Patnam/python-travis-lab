@@ -14,7 +14,9 @@ install:
 
 script: 
 
-  - pytest --cov
+  - coverage run --source=. tests/*.py nfa.py dfa.py
+  - coverage report -m 
+
 
 
 after_success:
