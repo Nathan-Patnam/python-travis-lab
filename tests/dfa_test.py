@@ -1,5 +1,7 @@
 import pytest
-from dfa import *
+import sys
+sys.path.append(sys.path[0] + "/..")
+from dfa import build_dfa
 
 
 class TestDFA(object):
