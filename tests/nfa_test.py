@@ -1,3 +1,6 @@
+# Add this line to the beginning of relative.py file
+import sys
+sys.path.append(sys.path[0] + "/..")
 import pytest
 from nfa import build_nfa
 
