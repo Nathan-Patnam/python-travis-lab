@@ -8,6 +8,7 @@ matrix:
 
 install:
   - pip install coverage
+  - pip install pyyaml
   - pip install -U pytest
   - pip install robotframework
   - pip install python-coveralls
@@ -20,6 +21,6 @@ script:
 
 
 after_success:
-  - coveralls
+  - coveralls --data_file ./tests/
 
 
