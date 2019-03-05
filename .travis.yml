@@ -14,7 +14,7 @@ install:
 
 script: 
 
-  - pytest --cov=./tests/
+  - pytest --cov=/tests/
 
 
 after_success:
