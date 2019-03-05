@@ -15,7 +15,7 @@ install:
 
 script: 
 
-  - coverage run --source=./tests/
+  - coverage run --source=/tests/nfa_test.py
   - pytest ./ -v
 
 
