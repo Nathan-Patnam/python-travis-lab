@@ -14,7 +14,7 @@ install:
 
 script: 
 
-  - coverage run --source=. tests/*.py nfa.py dfa.py
+  - pytest tests/dfa_test.py tests/nfa_test.py --cov=. *.py
   - coverage report -m 
 
 

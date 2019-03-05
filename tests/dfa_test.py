@@ -4,20 +4,18 @@ from dfa import build_dfa, DFA
 import pytest
 
 
-class TestDFA(object):
-
+class TestDFAMOCK(object):
         def test_build_dfa(self):
                 dfa = DFA()
                 dfa.set_states("q1,q2")
                 dfa.set_alphabet("a,b")
                 dfa.set_start_state("q1")
                 dfa.set_accept_states("q2")
-                
+
                 assert 1 == 1
+
+class TestDFA(object):
         
-
-
-
         @pytest.fixture(scope="function")
         def create_dfa(self,):
                 test_dfa = build_dfa("./mocks/dfa_1.txt")
