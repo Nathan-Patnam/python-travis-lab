@@ -108,8 +108,8 @@ class NFA():
 
 
 def main():
-    nfa = build_nfa("./mock_nfa.txt")
-    nfa.run_machine("./input.txt", "./output.txt")
+    nfa = build_nfa("./mocks/nfa_1.txt")
+    nfa.run_machine("./mocks/nfa_input_1.txt", "./output.txt")
 
 
 def build_nfa(file_name):

@@ -96,8 +96,8 @@ class DFA():
 
 
 def main():
-    dfa = build_dfa("./mocks/dfa/mock_dfa.txt")
-    dfa.run_machine("./input.txt", "output.txt")
+    dfa = build_dfa("./mocks/dfa_1.txtt")
+    dfa.run_machine("./dfa_input_1.txt", "output.txt")
 
 
 def build_dfa(file_name):
