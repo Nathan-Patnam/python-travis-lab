@@ -1,6 +1,6 @@
 import sys
 sys.path.append(sys.path[0] + "/..")
-from dfa import build_dfa, DFA
+from src.dfa import build_dfa, DFA
 import pytest
 
 

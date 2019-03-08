@@ -2,7 +2,7 @@
 import sys
 sys.path.append(sys.path[0] + "/..")
 import pytest
-from nfa import build_nfa
+from src.nfa import build_nfa
 
 
 class TestNFA(object):

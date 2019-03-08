@@ -14,7 +14,7 @@ install:
   - pip install python-coveralls
 
 script: 
-  - coverage run --source=. nfa.py /tests/nfa_test.py
+  - pytest --cov=src tests/
   - coverage report -m 
 
 
