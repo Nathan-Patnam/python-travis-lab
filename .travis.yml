@@ -13,8 +13,7 @@ install:
   - pip install python-coveralls
 
 script: 
-  - pytest tests/dfa_test.py --cov=. dfa.py
-  - pytest /tests/dfa_test.py /tests/nfa_test.py --cov=.
+  - pytest tests/dfa_test.py tests/nfa_test.py 
   - coverage report -m
 
 
