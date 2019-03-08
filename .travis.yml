@@ -14,7 +14,7 @@ install:
   - pip install python-coveralls
 
 script: 
-  - py.test --cov-report term --cov=. /tests/
+  - pytest --cov=. tests/
 
 
 
