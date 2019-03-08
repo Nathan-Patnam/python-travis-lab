@@ -8,13 +8,13 @@ matrix:
       sudo: true
 
 install:
-  - pip install -U pytest
-  - pip install pytest-cov 
-  - pip install pyyaml
   - pip install python-coveralls
+  - pip install coverage
+  - pip install nose
 
 script: 
-  - pytest --cov=./tests/
+  - python setup.py install
+  - nosetests --with-coverage # Add me to run nose with coverage support.
 
 
 
