@@ -11,8 +11,9 @@ class TestDFAMOCK(object):
                 dfa.set_alphabet("a,b")
                 dfa.set_start_state("q1")
                 dfa.set_accept_states("q2")
+                dfa.run_machine("./mocks/dfa_input_1.txt", "./mocks/outputs/dfa_output_1.txt")
 
-                assert 1 == 1
+                assert dfa.state_is_an_accept_state("q2") == True
 
 class TestDFA(object):
         

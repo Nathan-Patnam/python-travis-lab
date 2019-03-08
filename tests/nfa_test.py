@@ -9,6 +9,7 @@ class TestNFA(object):
     @pytest.fixture(scope="function")
     def create_nfa(self):
         test_nfa = build_nfa("mocks/nfa_1.txt")
+        test_nfa.run_machine("./mocks/nfa_input_1.txt", "./mocks/outputs/nfa_output_1.txt")
         return test_nfa
 
     def test_get_states(self, create_nfa):
