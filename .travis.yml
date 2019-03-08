@@ -14,7 +14,6 @@ install:
 
 script: 
   - coverage run --source=. nfa.py /tests/nfa_test.py
-  - coverage run --source=. dfa.py /tests/dfa_test.py
   - coverage report -m 
 
 
