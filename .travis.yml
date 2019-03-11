@@ -15,7 +15,7 @@ install:
 
 script: 
   - ls
-  - pytest --cov=src
+  - pytest --cov=src src/tests/
   - coverage report -m 
 
 
