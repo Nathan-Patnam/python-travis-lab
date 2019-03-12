@@ -9,12 +9,13 @@ matrix:
 
 install:
   - pip install -U pytest
+  - pip install pytest-pep8
   - pip install pytest-cov 
   - pip install pyyaml
   - pip install python-coveralls
 
 script: 
-  - pytest src/tests
+  - pytest src/ --doctest-modules --pep8
 
 
 
