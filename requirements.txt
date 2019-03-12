@@ -4,4 +4,3 @@ pytest-pep8
 pytest-cov 
 pyyaml
 coveralls
-python-coveralls
