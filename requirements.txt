@@ -1,0 +1,7 @@
+coverage > 4.4
+pytest
+pytest-pep8
+pytest-cov 
+pyyaml
+coveralls
+python-coveralls

@@ -8,12 +8,7 @@ matrix:
       sudo: true
 
 install:
-  - pip install -U pytest
-  - pip install pytest-pep8
-  - pip install pytest-cov 
-  - pip install pyyaml
-  - pip install coveralls
-  - pip install python-coveralls
+  - pip install -r requirements.txt
 script: 
   - ls
   - coverage run --source=src/ -m pytest src/tests
