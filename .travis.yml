@@ -14,9 +14,8 @@ install:
   - pip install python-coveralls
 
 script: 
-  - ls
-  - pytest --cov=src src/tests/
-  - coverage report -m 
+  - pytest src/tests
+
 
 
 
