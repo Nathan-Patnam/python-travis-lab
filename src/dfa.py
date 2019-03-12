@@ -95,9 +95,9 @@ class DFA():
         self.transitions[start_state][transition_letter] = end_state
 
 
-def main():
-    dfa = build_dfa("./mocks/dfa_1.txt")
-    dfa.run_machine("./dfa_input_1.txt", "output.txt")
+def main():  # pragma: no cover
+    dfa = build_dfa("./mocks/dfa_1.txt")  # pragma: no cover
+    dfa.run_machine("./dfa_input_1.txt", "output.txt")  # pragma: no cover
 
 
 # content of mymodule.py
@@ -124,7 +124,7 @@ def build_dfa(file_name):
     Line 2: the alphabet of the DFA (separated by commas,
     if there is more than one symbol)
     Line 3: the starting state of the DFA
-    Line 4: the final/accept states of the DFA (separated by commas,
+    Line 4: the final/accept states of the DFA (separated by commas,x
     if there is more than one accept state)
     Line 5 and onward: the transition rules
     """

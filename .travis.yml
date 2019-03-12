@@ -10,6 +10,6 @@ matrix:
 install:
   - pip install -r requirements.txt
 script: 
-  - ls
-  - coverage run --source=src/ -m pytest src/tests
+  - pytest --doctest-modules --pep8
+  - coverage run --source=src/ -m pytest src/tests --pep8
 after_success: coveralls
