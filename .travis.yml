@@ -14,8 +14,6 @@ install:
   - pip install pyyaml
   - pip install coveralls
   - pip install python-coveralls
-
 script:
   - coverage run --source=src/ -m pytest src/tests
-after_success:
-  - coveralls
+after_success: coveralls
