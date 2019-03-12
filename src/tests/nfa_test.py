@@ -35,7 +35,7 @@ class TestNFA(object):
     @pytest.fixture
     def get_machine_result_for_each(self):
         return [("012012", "accept"),
-                ("000", "reject"),
+                ("0000", "reject"),
                 ("1", "accept"),
                 ("22222222222222", "accept"),
                 ("210012", "reject"),
