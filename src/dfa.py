@@ -113,7 +113,7 @@ def build_dfa(file_name):
     """Build dfa from a file
 
     Args:
-        file_name : file you want to get data from
+        file_name : file you want to get data froms
 
     Returns:
         representation of a dfa
