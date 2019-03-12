@@ -1,15 +1,15 @@
-# Add this line to the beginning of relative.py file
+from ..nfa import build_nfa
+import pytest
 import sys
 sys.path.append(sys.path[0] + "/..")
-import pytest
-from ..nfa import build_nfa
 
 
 class TestNFA(object):
     @pytest.fixture(scope="function")
     def create_nfa(self):
         test_nfa = build_nfa("mocks/nfa_1.txt")
-        test_nfa.run_machine("./mocks/nfa_input_1.txt", "./mocks/outputs/nfa_output_1.txt")
+        test_nfa.run_machine("./mocks/nfa_input_1.txt",
+                             "./mocks/outputs/nfa_output_1.txt")
         return test_nfa
 
     def test_get_states(self, create_nfa):
@@ -33,7 +33,7 @@ class TestNFA(object):
         assert end_states == nfa_end_states
 
     @pytest.fixture
-    def get_machine_result_for_each_input(self):
+    def get_machine_result_for_each(self):
         return [("012012", "accept"),
                 ("000", "reject"),
                 ("1", "accept"),
@@ -43,8 +43,8 @@ class TestNFA(object):
                 ("1111111111110", "accept")
                 ]
 
-    def test_inputs_on_state(self, create_nfa, get_machine_result_for_each_input):
-        for input_output in get_machine_result_for_each_input:
+    def test_inputs_on_state(self, create_nfa, get_machine_result_for_each):
+        for input_output in get_machine_result_for_each:
                 input_string = input_output[0]
                 output = create_nfa.get_output(input_string)
                 expected_output_string = input_output[1]
@@ -63,5 +63,3 @@ class TestNFA(object):
                 state = state_neighbor_pair[0]
                 expected_neighbors = state_neighbor_pair[1]
                 assert create_nfa.get_children(state) == expected_neighbors
-
-  

@@ -1,7 +1,7 @@
 import sys
 sys.path.append(sys.path[0] + "/..")
-from ..dfa import build_dfa, DFA
-import pytest
+from ..dfa import build_dfa, DFA  # noqa: E402
+import pytest  # noqa: E402
 
 
 class TestDFAMOCK(object):
@@ -11,12 +11,14 @@ class TestDFAMOCK(object):
                 dfa.set_alphabet("a,b")
                 dfa.set_start_state("q1")
                 dfa.set_accept_states("q2")
-                dfa.run_machine("./mocks/dfa_input_1.txt", "./mocks/outputs/dfa_output_1.txt")
+                INPUT_FILE = "./mocks/dfa_input_1.txt"
+                OUTPUT_FILE = "./mocks/outputs/dfa_output_1.txt"
+                dfa.run_machine(INPUT_FILE, OUTPUT_FILE)
 
-                assert dfa.state_is_an_accept_state("q2") == True
+                assert dfa.state_is_an_accept_state("q2")
+
 
 class TestDFA(object):
-        
         @pytest.fixture(scope="function")
         def create_dfa(self,):
                 test_dfa = build_dfa("./mocks/dfa_1.txt")

@@ -1,4 +1,4 @@
-#can we assume valid input, valid alphabet,
+# can we assume valid input, valid alphabet,
 
 
 class DFA():
@@ -19,7 +19,7 @@ class DFA():
         self.start_state = ""
         self.end_states = ""
         self.transitions = {}
-        
+
     def set_states(self, states):
         states = self.__turn_list_items_into_a_set(states)
         self.states = states
@@ -42,18 +42,17 @@ class DFA():
         items = set(items)
         return items
 
-    
-
     def run_machine(self, file_name, output_file):
-        """ takes in a file of sequences, and checks to see if each sequnece will be accepted or rejceted by the machine
+        """ takes in a file of sequences, and checks to see
+        if each sequnece will be accepted or rejceted by the machine
         Args:
             file_name: file to read sequences from
-            output_file: file to write whether each sequnce will be rejected or accepted to
+            output_file: file to write outcome to
         Returns:
             None
         """
         results = []
-        #iterate through each string in the input and calculate the final state
+        # iterate through each char in the input and calculate the final state
         with open(file_name, 'r+') as fh:
             for record in fh:
                 current_state = self.start_state
@@ -62,7 +61,7 @@ class DFA():
                     if transition in self.alphabet:
                         current_state = self.__get_transition_state(
                             current_state, transition)
-                #checks to see if final state is a accepted state by the machine
+                # checks to see if final state is a accepted state
                 if self.state_is_an_accept_state(current_state):
                     results.append("Accept\n")
                 else:
@@ -83,7 +82,8 @@ class DFA():
         return state in self.accept_states
 
     def add_transitsion(self, transition):
-        #algorithm create dictionary where each key is a state that maps to another dictionary where each key is a transition and value is another state -> {a: {1: "b"}}
+        # each key is a state that maps to another dictionary
+        # where each key is a transition
 
         transition = transition.strip()
         transition = transition.split(",")
@@ -100,22 +100,34 @@ def main():
     dfa.run_machine("./dfa_input_1.txt", "output.txt")
 
 
+# content of mymodule.py
+def something():
+    """ a doctest in a docstring
+    >>> something()
+    42
+    """
+    return 42
+
+
 def build_dfa(file_name):
     """Build dfa from a file
 
-        Args:
-            file_name : file you want to get data from
-        
-        Returns:
-            representation of a dfa
+    Args:
+        file_name : file you want to get data from
 
-        File Requirements
-        Line 1: the states of the DFA (separated by commas, if there is more than one state)
-	    Line 2: the alphabet of the DFA (separated by commas, if there is more than one symbol)
-	    Line 3: the starting state of the DFA
-	    Line 4: the final/accept states of the DFA (separated by commas, if there is more than one accept state)
-	    Line 5 and onward: the transition rules 
-        """
+    Returns:
+        representation of a dfa
+
+    File Requirements
+    Line 1: the states of the DFA (separated by commas,
+    if there is more than one state)
+    Line 2: the alphabet of the DFA (separated by commas,
+    if there is more than one symbol)
+    Line 3: the starting state of the DFA
+    Line 4: the final/accept states of the DFA (separated by commas,
+    if there is more than one accept state)
+    Line 5 and onward: the transition rules
+    """
     dfa = DFA()
     with open(file_name, 'r+') as fh:
         line_number = 1
@@ -124,9 +136,9 @@ def build_dfa(file_name):
             if line_number == 1:
                 dfa.set_states(line)
             elif line_number == 2:
-                 dfa.set_alphabet(line)
+                dfa.set_alphabet(line)
             elif line_number == 3:
-                 dfa.set_start_state(line)
+                dfa.set_start_state(line)
             elif line_number == 4:
                 dfa.set_accept_states(line)
             else:
@@ -134,7 +146,5 @@ def build_dfa(file_name):
             line_number += 1
     return dfa
 
-
 if __name__ == "__main__":
-   # stuff only to run when not called via 'import' here
-   main()
+    main()

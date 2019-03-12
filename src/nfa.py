@@ -32,6 +32,7 @@ class NFA():
     def __add_states_to_transitions(self, states):
         for state in states:
             self.transitions[state] = {}
+
     def get_children(self, state):
         return self.transitions[state]
 
@@ -45,38 +46,40 @@ class NFA():
 
     def __get_output(self, current_state, input_string):
 
-        # base condition -> 0 characters left and current state in a final state
+        # base condition -> 0 char left and current state in a final state
         if input_string == "" and self.state_is_an_accept_state(current_state):
             return True
 
-        # check to see if there are any empty string transitions in the start state
+        # check to see if there are any empty transitions in the start state
         if "@" in self.transitions[current_state]:
-            for state_that_can_be_transitions_with_empty_string in self.transitions[current_state]["@"]:
+            for transition in self.transitions[current_state]["@"]:
                 # make sure I am not transitioning to the same step infinitely
-                if state_that_can_be_transitions_with_empty_string != current_state:
+                if transition != current_state:
                     if self.__get_output(
-                            state_that_can_be_transitions_with_empty_string, input_string):
+                            transition, input_string):
                         return True
 
         if len(input_string) >= 1:
             transition = input_string[0]
             input_string = input_string[1:]
             if transition in self.transitions[current_state]:
-                for transition_state in self.transitions[current_state][transition]:
-                    if self.__get_output(transition_state, input_string):
+                for trans_state in self.transitions[current_state][transition]:
+                    if self.__get_output(trans_state, input_string):
                         return True
         return False
 
     def run_machine(self, file_name, output_file):
-        """ takes in a file of sequences, and checks to see if each sequnece will be accepted or rejceted by the machine
+        """ takes in a file of sequences, and checks to see
+        if each sequnece will be accepted or rejceted by the machine
         Args:
             file_name: file to read sequences from
-            output_file: file to write whether each sequnce will be rejected or accepted to
+            output_file: file to write whether each sequnce will be
+            rejected or accepted to
         Returns:
             None
         """
         results = []
-        # iterate through each string in the input and calculate the final state
+        # iterate through each char in the input and calculate the final state
         with open(file_name, 'r') as fh:
             for input_string in fh:
                 input_string = input_string.strip()
@@ -88,14 +91,14 @@ class NFA():
         with open(output_file, "w") as fh:
             for result in results:
                 fh.write(result + "\n")
-                
 
     def state_is_an_accept_state(self, state):
         return state in self.end_states
 
     def add_transitsion(self, transition):
-
-        # algorithm create dictionary where each key is a state that maps to another dictionary where each key is a transition and value is another state -> {a: {1: "b"}}
+        # algorithm create dictionary where each key is a state that maps
+        # to another dictionary where each key is a transition
+        # state -> {a: {1: "b"}}
         transition = transition.strip()
         transition = transition.split(",")
         start_state = transition[0]
@@ -122,11 +125,14 @@ def build_nfa(file_name):
             representation of a dfa
 
         File Requirements
-        Line 1: the states of the DFA (separated by commas, if there is more than one state)
-            Line 2: the alphabet of the DFA (separated by commas, if there is more than one symbol)
+        Line 1: the states of the DFA (separated by commas,
+        if there is more than one state)
+            Line 2: the alphabet of the DFA (separated by commas,
+            if there is more than one symbol)
             Line 3: the starting state of the DFA
-            Line 4: the final/accept states of the DFA (separated by commas, if there is more than one accept state)
-            Line 5 and onward: the transition rules 
+            Line 4: the final/accept states of the DFA (separated by commas, if
+            there is more than one accept state)
+            Line 5 and onward: the transition rules
         """
     nfa = NFA()
     with open(file_name, 'r+') as fh:
