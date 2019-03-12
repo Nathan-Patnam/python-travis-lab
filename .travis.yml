@@ -12,11 +12,12 @@ install:
   - pip install pytest-pep8
   - pip install pytest-cov 
   - pip install pyyaml
+  - pip install coveralls
   - pip install python-coveralls
 
 script: 
-  - coverage run --source=. src/nfa.py /tests/nfa_test.py
-  - coverage report -m 
+  - pytest --cov=./
+
 
 
 
