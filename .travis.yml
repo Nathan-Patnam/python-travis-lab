@@ -15,7 +15,8 @@ install:
   - pip install python-coveralls
 
 script: 
-  - pytest src/ --doctest-modules --pep8
+  - coverage run --source=. src/nfa.py /tests/nfa_test.py
+  - coverage report -m 
 
 
 
