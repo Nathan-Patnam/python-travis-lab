@@ -3,3 +3,5 @@ pytest
 pytest-pep8
 pyyaml
 coveralls
+robotframework
+docutils
