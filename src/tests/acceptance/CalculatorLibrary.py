@@ -30,7 +30,6 @@ class CalculationError(Exception):
     pass
 
 
-
 class CalculatorLibrary(object):
     """Test library for testing *Calculator* business logic.
     Interacts with the calculator directly using its ``push`` method.
