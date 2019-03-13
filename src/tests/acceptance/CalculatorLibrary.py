@@ -1,4 +1,4 @@
-from calculator import Calculator, CalculationError
+from .calculator import Calculator, CalculationError
 
 
 class CalculatorLibrary(object):
