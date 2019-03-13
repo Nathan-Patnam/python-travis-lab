@@ -1,6 +1,6 @@
 __pycache__/
 .pytest_cache/
 htmlcov/
-log.html
-report.xml
-output.xml
+.log.html
+.report.xml
+.output.xml
