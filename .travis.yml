@@ -12,6 +12,5 @@ install:
 script: 
   - pytest --doctest-modules --pep8
   - coverage run --source=src/ -m pytest src/tests --pep8
-
-  - robot src/tests/acceptance/robot.robot 
+  - robot src/tests/acceptance/robot.robot
 after_success: coveralls
